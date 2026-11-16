@@ -24,7 +24,7 @@ export function SortableCard({ card }: SortableCardProps) {
         >
           <div className={`card`} onClick={() => setSelectedCardId(card.id)}>
             <div className="card-title">
-              {card.completed && (
+              {Boolean(card.completed) && (
                 <span className="card-check">
                   <svg
                     viewBox="0 0 24 24"

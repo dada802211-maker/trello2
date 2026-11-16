@@ -5,7 +5,7 @@ C:\laragon\www\trello2\フォルダ内でこのコードを修正して
 フロント側：C:\laragon\www\trello2\frontを修正してください
 バックエンド側をC:\laragon\www\trello2\phpに変更してください
 ローカルでの動作はLaragonのphpを使用し
-データベースはtrello2を使用してください
+データベースはmysqlのtrello2を使用してください
 ログイン状態はセッション変数でお願いします
 レンタルサーバーにデプロイできるようにreleaseフォルダに日付フォルダにデプロイ用のファイルを作成してください
 最後にREADME.mdを作成してください

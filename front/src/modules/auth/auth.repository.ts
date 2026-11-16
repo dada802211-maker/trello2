@@ -6,19 +6,19 @@ export const authRepository = {
     name: string,
     email: string,
     password: string
-  ): Promise<{ user: User; token: string }> {
-    // http://localhost:8888/auth/signup
+  ): Promise<{ user: User }> {
     const result = await api.post('/auth/signup', { name, email, password });
-    const { user, token } = result.data;
-    return { user: new User(user), token };
+    return { user: new User(result.data.user) };
   },
   async signin(
     email: string,
     password: string
-  ): Promise<{ user: User; token: string }> {
+  ): Promise<{ user: User }> {
     const result = await api.post('/auth/signin', { email, password });
-    const { user, token } = result.data;
-    return { user: new User(user), token };
+    return { user: new User(result.data.user) };
+  },
+  async signout(): Promise<void> {
+    await api.post('/auth/signout');
   },
   async getCurrentUser(): Promise<User | undefined> {
     const result = await api.get('/auth/me');

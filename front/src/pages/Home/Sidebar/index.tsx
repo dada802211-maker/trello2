@@ -2,6 +2,7 @@ import { useAtom } from 'jotai';
 import { currentUserAtom } from '../../../modules/auth/current-user.state';
 import { useState } from 'react';
 import { accountRepository } from '../../../modules/account/account.repository';
+import { authRepository } from '../../../modules/auth/auth.repository';
 
 interface SidebarProps {
   onClose: () => void;
@@ -23,8 +24,8 @@ export const Sidebar = ({ onClose }: SidebarProps) => {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('token');
+  const logout = async () => {
+    await authRepository.signout();
     setCurrentUser(undefined);
   };
 

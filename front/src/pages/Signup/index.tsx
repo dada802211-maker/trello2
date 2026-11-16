@@ -14,12 +14,11 @@ function Signup() {
   const signup = async () => {
     try {
       if (name == '' || email == '' || password == '') return;
-      const { user, token } = await authRepository.signup(
+      const { user } = await authRepository.signup(
         name,
         email,
         password
       );
-      localStorage.setItem('token', token);
       setCurrentUser(user);
     } catch (error) {
       console.error('ユーザー登録に失敗しました。', error);
